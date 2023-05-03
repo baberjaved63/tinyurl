@@ -2,7 +2,7 @@ class UrlTokensController < ApplicationController
   before_action :find_url_token, only: %i[show launch]
 
   def index
-    @url_tokens = UrlToken.all
+    @pagy, @url_tokens = pagy UrlToken.all
   end
 
   def new
@@ -20,7 +20,7 @@ class UrlTokensController < ApplicationController
   end
 
   def show
-    @url_visits = @token.url_visits
+    @pagy, @url_visits = pagy @token.url_visits
   end
 
   def launch
