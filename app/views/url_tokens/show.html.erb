@@ -1,0 +1,35 @@
+<div class="card mb-3">
+  <div class="card-header">
+    <h2>URL Token Details</h2>
+  </div>
+  <div class="card-body">
+    <dl class="row">
+      <dt class="col-sm-3">URL</dt>
+      <dd class="col-sm-9"><%= @token.url %></dd>
+
+      <dt class="col-sm-3">Tiny URL</dt>
+      <dd class="col-sm-9"><%= launch_path(@token) %></dd>
+
+      <dt class="col-sm-3">Vists</dt>
+      <dd class="col-sm-9"><%= @token.url_visits_count %></dd>
+    </dl>
+
+    <h4>Visit Info </h4>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">IP Address</th>
+          <th scope="col">Visited At</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @url_visits.each do |visit| %>
+          <tr>
+            <td><%= visit.ip_address %></td>
+            <td><%= visit.created_at %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

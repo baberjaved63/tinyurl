@@ -1,0 +1,24 @@
+<h3>Paste URL below and click "Shorten URL</h3>
+
+<%= form_for @token do |form| %>
+  <% if @token.errors.any? %>
+    <div id="error_explanation">
+      <h5><%= pluralize(@token.errors.count, "error") %> prohibited this @token from being saved:</h5>
+
+      <ul>
+      <% @token.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :url %>
+    <%= form.text_area :url, class: 'form-control' %>
+  </div>
+
+  <div class="actions mt-4">
+    <%= form.submit "Shorten URL", class: 'btn btn-primary' %>
+  </div>
+<% end %>

@@ -5,6 +5,10 @@ class UrlToken < ApplicationRecord
 
   before_create :generate_token
 
+  def to_param
+    token
+  end
+
   private
 
   def generate_token

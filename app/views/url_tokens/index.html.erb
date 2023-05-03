@@ -1,0 +1,26 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">URL</th>
+      <th scope="col">Token</th>
+      <th scope="col">Visits</th>
+      <th scope="col">Tiny URL</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @url_tokens.each do |url_token| %>
+      <tr>
+        <td><%= url_token.id %></td>
+        <td><%= url_token.url %></td>
+        <td><%= url_token.token %></td>
+        <td><%= url_token.url_visits_count %></td>
+        <td><%= launch_path(url_token) %></td>
+        <td>
+          <%= link_to "Details", url_token_path(url_token) %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
